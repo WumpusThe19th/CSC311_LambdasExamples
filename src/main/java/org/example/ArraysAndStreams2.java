@@ -32,6 +32,25 @@ public class ArraysAndStreams2 {
                .filter(s -> s.compareToIgnoreCase("n") < 0)
                .sorted(String.CASE_INSENSITIVE_ORDER.reversed())
                .collect(Collectors.toList()));
+      
+      System.out.printf("strings starting with a vowel: %s%n",
+         Arrays.stream(strings)
+               .filter(s-> (s.charAt(0) == 'Y' || s.charAt(0) == 'o' || s.charAt(0) == 'i'))
+               .collect(Collectors.toList()));
+
+
+      // strings in one larger string, separated by commas
+      System.out.printf("concatenated strings, separated by commas: %s%n",
+         Arrays.stream(strings)
+               .collect(Collectors.joining(",")));
+
+
+      // count of all strings that have more than 5 characters
+      System.out.printf("strings that contain more than 5 characters: %s%n",
+         Arrays.stream(strings)
+               .filter(s-> s.length() > 5)
+               .count());
+
    }
 } 
 
